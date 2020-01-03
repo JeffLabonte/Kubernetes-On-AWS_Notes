@@ -37,3 +37,24 @@ wget https://github.com/kubernetes/minikube/releases/download/v1.6.2/minikube_1.
 sudo gdebi minikube*.deb
 ```
 
+## Time to play with Kubernetes:
+
+Create a Docker image for the sake for the example:
+
+```dockerfile
+from nginx:alpine
+RUN echo "<h1>Hello From Minikube</h1>" > /usr/share/nginx/html/index.html
+```
+
+To change where the docker deamon is going to run from ( Open a second terminal and test some docker commands to see the difference):
+
+```bash
+eval $(minikube docker-env)
+```
+
+Then you can build your nginx image inside minikube:
+
+```bash
+docker build -t hello:v1 .
+```
+
