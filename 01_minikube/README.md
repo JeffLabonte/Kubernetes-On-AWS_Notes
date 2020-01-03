@@ -58,3 +58,10 @@ Then you can build your nginx image inside minikube:
 docker build -t hello:v1 .
 ```
 
+Now the kubernetes part. You need to change `kubectl` context using the following command:
+
+```bash
+kubectl config use-context minikube
+```
+
+Now we are going to interact with your `minikube` VM using `kubectl`
