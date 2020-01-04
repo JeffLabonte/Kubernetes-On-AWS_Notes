@@ -32,3 +32,27 @@ Then you are required to run the yaml file using `apply` command.
 kubectl apply -f deployments/v2_deployment_hello.yaml
 kubectl expose deployment/hello --port=80 --type="NodePort" --name=hello
 ```
+
+## Update this pod!
+
+Now we can build the new docker image:
+
+```dockerfiles
+# Don't forget to have the right docker configurations - eval $(minikube docker-env)
+docker build -t hello:v2 -f Dockerfile_v2 .
+```
+
+Then we can change the image of our deployment aka our pod:
+```bash
+kubectl set image deployment/hello hello=hello:v2
+```
+
+## Oops... we messed up!
+
+No problem, we can rollback!
+
+```bash
+kubectl rollout undo deployment/hello
+```
+
+That's it! Enjoy!
