@@ -89,3 +89,26 @@ kubectl get pods
 You should see the following:
 
 ![](gifs/kubectl_get_pods.gif)
+
+Even though you have successfully ran your first pod, it isn't accessible right now. The port 80 is opened in the pod, there is no access from the container.
+We need to create a service that will redirect the traffic.
+
+That is if you ran the deprecated way of creating a new pod:
+```bash
+kubectl expose deployment/hello --port=80 --type="NodePort" --name=hello
+```
+
+Otherwise you might want to run this command:
+
+```bash
+kubectl expose pod hello --port=80 --type="NodePort" --name=hello
+```
+
+__Now you may have already tried to access your pod by typing `localhost:80` and noticed that you aren't reaching anything.__ It is because kubernetes redirected the port 80 from our pod to a random port.
+
+You can find the accessible port:
+
+```bash
+kubectl get service hello
+```
+![](gifs/kubectl_get_service_hello.gif)
