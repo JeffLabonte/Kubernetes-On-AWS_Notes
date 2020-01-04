@@ -65,3 +65,19 @@ kubectl config use-context minikube
 ```
 
 Now we are going to interact with your `minikube` VM using `kubectl`
+
+### Run an image on the cluster
+
+The deprecated way shown in the book:
+
+```bash
+kubectl run hello --image=hello:v1 --image-pull-policy=Never --port=80
+```
+
+The new version of it is with an extra flat to override the default `--generator` flag.
+
+```bash
+ kubectl run hello --generator=run-pod/v1  --image=hello:v1 --image-pull-policy=Never --port=80
+ ```
+
+
