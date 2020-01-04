@@ -28,8 +28,7 @@ sudo mv kubectl /usr/local/bin/kubectl
 
 ```bash
 sudo apt install virtualbox virtualbox-ext-pack -y
-```
-
+``` 
 ## Install minikube
 
 ```bash
