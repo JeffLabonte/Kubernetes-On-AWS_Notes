@@ -6,13 +6,13 @@ This is an up and running from your development machine.
 
 1. kubectl
 2. VM Manager:
-    * VirtualBox
-    * KVM
-    * VMWare
-    * or any other I guess
+   * VirtualBox
+   * KVM
+   * VMWare
+   * or any other I guess
 3. minikube
 4. Docker
-    * On your dev machine
+   * On your dev machine
 
 ## Install kubectl
 
@@ -78,6 +78,16 @@ The new version of it is with an extra flat to override the default `--generator
 
 ```bash
  kubectl run hello --generator=run-pod/v1  --image=hello:v1 --image-pull-policy=Never --port=80
- ```
+```
+
+At that point you should have a pod running:
+
+```bash
+kubectl get pods
+```
+
+You should see the following:
 
 
+
+![](gifs/kubectl_get_pods.gif)
