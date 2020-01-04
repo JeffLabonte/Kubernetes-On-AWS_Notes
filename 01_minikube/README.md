@@ -104,7 +104,7 @@ Otherwise you might want to run this command:
 kubectl expose pod hello --port=80 --type="NodePort" --name=hello
 ```
 
-__Now you may have already tried to access your pod by typing `localhost:80` and noticed that you aren't reaching anything.__ It is because kubernetes redirected the port 80 from our pod to a random port.
+__Now you may have already tried to access your pod by typing `localhost:80` and noticed that you aren't reaching anything. It is because kubernetes redirected the port 80 from our pod to a random port.__
 
 You can find the accessible port:
 
@@ -112,3 +112,15 @@ You can find the accessible port:
 kubectl get service hello
 ```
 ![](gifs/kubectl_get_service_hello.gif)
+
+Let me guess? You are still not able to access your pod, eh? In that case, it means that you are not talking to minikube, you should run the following command to minikube's IP address:
+
+```bash
+minikube ip
+```
+
+You should have the same output as I have:
+
+![](gifs/minikube_ip.gif)
+
+You should now be able to see the result of your hard labour!
