@@ -88,6 +88,4 @@ kubectl get pods
 
 You should see the following:
 
-
-
 ![](gifs/kubectl_get_pods.gif)
