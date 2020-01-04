@@ -66,7 +66,7 @@ kubectl config use-context minikube
 
 Now we are going to interact with your `minikube` VM using `kubectl`
 
-### Run an image on the cluster
+### Create a POD on the fly
 
 The deprecated way shown in the book:
 
