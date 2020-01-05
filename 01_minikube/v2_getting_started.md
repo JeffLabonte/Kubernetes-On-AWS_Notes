@@ -55,4 +55,8 @@ No problem, we can rollback!
 kubectl rollout undo deployment/hello
 ```
 
+## Resilience
+
+![](gifs/kubernetes_resilience.gif)
+
 That's it! Enjoy!
