@@ -59,4 +59,8 @@ kubectl rollout undo deployment/hello
 
 ![](gifs/kubernetes_resilience.gif)
 
+## Scale your application
+
+![](gifs/kubectl_scale_up.gif)
+
 That's it! Enjoy!
