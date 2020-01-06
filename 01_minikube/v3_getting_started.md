@@ -10,3 +10,6 @@ RUN apk add --no-cache bash
 Delete the deployment and service so we can recreate them with the file
 
 `kubectl delete deployment/hello svc/hello`
+
+To create a service
+ `kubectl apply -f ./services/v3_service.yaml`
