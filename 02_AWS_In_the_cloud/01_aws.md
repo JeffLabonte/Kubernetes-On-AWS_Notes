@@ -42,3 +42,7 @@ NAT_GATEWAY_ALLOCATION_ID=$(aws ec2 allocate-address --domain vpc --query Alloca
 NAT_GATEWAY_ID=$(aws ec2 create-nat-gateway --subnet-id $PUBLIC_SUBNET_ID --allocation-id $NAT_GATEWAY_ALLOCATION_ID --query "NatGateway.NatGatewayId" --output text)
 
 aws ec2 create-route --route-table-id $PRIVATE_ROUTE_TABLE_ID --destination-cidr-block 0.0.0.0/0 --nat-gateway-id $NAT_GATEWAY_ID
+
+BASTION_SG_ID=$(aws ec2 create-security-group --group-name ssh-bastion --description "SSH Bastion Hosts" --vpc-id $VPC_ID --query GroupdId --output text)
+
+aws ec2 authorize-security-group-ingress --group-id $BASTION_SG_ID --protocol tcp --port 22 --cidr 0.0.0.0/0
